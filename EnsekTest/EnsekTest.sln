@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35111.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsekTechTest.Tests", "EnsekTechTest.Tests\EnsekTechTest.Tests.csproj", "{904038F6-87F4-4875-B58C-9BF0CD254481}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsekTechTest.TestData", "EnsekTechTest.TestData\EnsekTechTest.TestData.csproj", "{21BE6479-18CD-4F30-B357-644E286148D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{172B3795-9BA0-4495-A662-5A137E770228}"
+	ProjectSection(SolutionItems) = preProject
+		appconfig.json = appconfig.json
+		..\..\..\..\Users\connm\Downloads\.editorconfig = ..\..\..\..\Users\connm\Downloads\.editorconfig
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abstractions", "Abstractions", "{EE138F14-4D9A-4589-BBDE-6FEB5258B57E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsekTechTest.Abstractions", "Abstractions\EnsekTechTest.Abstractions\EnsekTechTest.Abstractions.csproj", "{D66B961F-7F57-43A7-84B5-4D8798C16ECA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{904038F6-87F4-4875-B58C-9BF0CD254481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{904038F6-87F4-4875-B58C-9BF0CD254481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{904038F6-87F4-4875-B58C-9BF0CD254481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{904038F6-87F4-4875-B58C-9BF0CD254481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21BE6479-18CD-4F30-B357-644E286148D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21BE6479-18CD-4F30-B357-644E286148D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21BE6479-18CD-4F30-B357-644E286148D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21BE6479-18CD-4F30-B357-644E286148D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D66B961F-7F57-43A7-84B5-4D8798C16ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D66B961F-7F57-43A7-84B5-4D8798C16ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D66B961F-7F57-43A7-84B5-4D8798C16ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D66B961F-7F57-43A7-84B5-4D8798C16ECA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D66B961F-7F57-43A7-84B5-4D8798C16ECA} = {EE138F14-4D9A-4589-BBDE-6FEB5258B57E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71AC16A8-051E-4BC6-ADC0-003E947B4386}
+	EndGlobalSection
+EndGlobal
