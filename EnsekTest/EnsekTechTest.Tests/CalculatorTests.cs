@@ -1,4 +1,5 @@
-﻿using EnsekTechTest.Abstractions.Errors;
+﻿using EnsektechTest.Fixtures;
+using EnsekTechTest.Abstractions.Errors;
 using EnsekTechTest.TestData;
 using FluentAssertions;
 using System.Diagnostics;
@@ -6,8 +7,15 @@ using Xunit;
 
 namespace EnsekTechTest.Tests
 {
-    public class CalculatorTests
+    public class CalculatorTests : IClassFixture<ConfigurationFixture>
     {
+        //  readonly ILogger _logger;
+
+        //public CalculatorTests(ConfigurationFixture configurationFixture)
+        //{
+        //    _logger = ConfigurationFixture.Logger($"{GetType().Name}");
+        //}
+
         [Theory]
         [ClassData(typeof(CalculatorMultiplierData))]
         public void Test_multipliers(int first, int second, int result)
@@ -28,7 +36,7 @@ namespace EnsekTechTest.Tests
             catch (DivideByZeroException)
             {
                 Debug.WriteLine(CalculatorErrors.DivideByZero);
-                //throw;
+                throw;
             }
         }
     }
