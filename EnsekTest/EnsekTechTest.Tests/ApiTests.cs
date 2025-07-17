@@ -20,7 +20,7 @@ namespace EnsekTechTest.Tests
         }
 
         // please note i would normally have all usernames, passwords, uri etc.. in an apsettings file or push them in from
-        // a runner as environmental variables
+        // a test runner as environmental variables
 
         // TODO in the purchase method, Nuclear does not have any quantity so would have a separate test as would need to
         // create quantity to purchase
