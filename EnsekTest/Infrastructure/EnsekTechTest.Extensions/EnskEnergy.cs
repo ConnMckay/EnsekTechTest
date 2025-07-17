@@ -1,6 +1,6 @@
 ﻿using EnsekTechTest.TestData.POCOS;
+using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
-using System.Text;
 
 namespace EnsekTechTest.Extensions
 {
@@ -27,9 +27,10 @@ namespace EnsekTechTest.Extensions
             return true;
         }
 
-        public static async Task<bool> PurchaseEnergy(this Login validLogin, string tokenEndpoint, string endpoint, Order order)
+        public static async Task<(string PurchaseId, string Quantity)> PurchaseEnergy(this Login validLogin, string tokenEndpoint, string endpoint, Order order)
         {
             var token = await validLogin.GetToken(tokenEndpoint);
+            var url = $"https://qacandidatetest.ensek.io/ENSEK/buy/{order.EnergyId}/{order.Quantity}";
 
             using HttpClient client = new HttpClient();
 
@@ -40,24 +41,20 @@ namespace EnsekTechTest.Extensions
                 token
                 );
 
-            // JSON payload
-            var json = $@"{{
-            ""id"": ""{order.Id}"",
-            ""quantity"": {order.Quantity},
-            ""energy_id"": {order.EnergyId}
-        }}";
-
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
             // Send PUT request
-            HttpResponseMessage response = await client.PutAsync($"https://qacandidatetest.ensek.io/ENSEK/orders/{order.EnergyId}", content);
+            HttpResponseMessage response = await client.PutAsync(url, null);
+            response.EnsureSuccessStatusCode();
 
             // Read response
             string responseBody = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(responseBody);
-            response.EnsureSuccessStatusCode();
+            JObject json = JObject.Parse(responseBody);
+            var message = json["message"].ToString() ?? string.Empty;
 
-            return true;
+            //this should be an extension method
+            var splitMessage = message.Split(' ');
+            var purchaseId = splitMessage[^1];
+            var quantity = splitMessage[3];
+            return (purchaseId.Replace(".", ""), quantity);
         }
     }
 }

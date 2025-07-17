@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EnsekTechTest.Abstractions;
+﻿namespace EnsekTechTest.Abstractions;
 
 public class OutcomeResult
 {
@@ -22,10 +16,10 @@ public class OutcomeResult
     public bool IsFailure => !IsSuccess;
     public IsError IsError { get; }
 
-    public static OutcomeResult Success() => new OutcomeResult(true, IsError.None);
-    public static OutcomeResult Failure(IsError error) => new OutcomeResult(false, error);
+    public static OutcomeResult Success() => new(true, IsError.None);
+    public static OutcomeResult Failure(IsError error) => new(false, error);
 
-       public static OutcomeResult Failure(string v) => throw new NotImplementedException();
+    public static OutcomeResult Failure(string v) => throw new NotImplementedException();
 
 
 }
